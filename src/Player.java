@@ -9,12 +9,12 @@ public class Player {
     private double lootModifier;
 
     public Player(String playerClass){
-        if (playerClass == "Warrior"){
+        if (playerClass.equals("Warrior")){
             health = Constants.WARRIOR_HEALTH;
             damage = Constants.WARRIOR_DAMAGE;
             lootModifier = 1;
         }
-        if (playerClass == "Thief"){
+        if (playerClass.equals("Thief")){
             health = Constants.THIEF_HEALTH;
             damage = Constants.THIEF_DAMAGE;
             lootModifier = Constants.THIEF_GP_MODIFIER;
