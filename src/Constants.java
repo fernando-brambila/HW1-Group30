@@ -2,6 +2,9 @@ public class Constants {
 
     // warrior, thief classes
 
+    public static String WARRIOR_NAME = "Warrior";
+    public static String THIEF_NAME = "Thief";
+
     public static int WARRIOR_HEALTH = 100;
     public static int WARRIOR_DAMAGE = 15;
 
@@ -20,4 +23,12 @@ public class Constants {
 
     public static int ORC_HEALTH = 18;
     public static int ORC_DAMAGE = 20;
+
+    // controls
+
+    public static String MOVE_UP = "w";
+    public static String MOVE_DOWN = "s";
+    public static String MOVE_LEFT = "a";
+    public static String MOVE_RIGHT = "d";
+
 }
