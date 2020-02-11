@@ -6,6 +6,10 @@ public class Player {
     private String playerClass;
     private double lootModifier;
 
+    public Player(String playerClass){
+
+    }
+
     public void attack(Monster target) {
 
     }
