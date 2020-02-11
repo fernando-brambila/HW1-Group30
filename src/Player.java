@@ -1,13 +1,24 @@
 
 public class Player {
-    private int health;
-    private int gold;
-    private int damage;
     private String playerClass;
+
+    private int health;
+    private int damage;
+    private int gold;
+
     private double lootModifier;
 
     public Player(String playerClass){
-
+        if (playerClass == "Warrior"){
+            health = Constants.WARRIOR_HEALTH;
+            damage = Constants.WARRIOR_DAMAGE;
+            lootModifier = 1;
+        }
+        if (playerClass == "Thief"){
+            health = Constants.THIEF_HEALTH;
+            damage = Constants.THIEF_DAMAGE;
+            lootModifier = Constants.THIEF_GP_MODIFIER;
+        }
     }
 
     public void attack(Monster target) {
@@ -24,5 +35,10 @@ public class Player {
 
     public void onLoot(int gold) {
 
+    }
+
+    public void printStats(){
+        System.out.println("Current Health: " + health);
+        System.out.println("Current gold: " + gold);
     }
 }
