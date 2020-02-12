@@ -42,6 +42,10 @@ public class DungeonMap {
         System.out.println();
     }
 
+    public void enterRoom(int row, int column){
+        rooms[column - 1][row - 1].enter(player);
+    }
+
     public void setPlayer(Player player){
         this.player = player;
     }

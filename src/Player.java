@@ -97,6 +97,7 @@ public class Player {
         if (direction.equals(Constants.MOVE_RIGHT)){
             x += 1;
         }
+        currentMap.enterRoom(x, y);
     }
 
     public void nextMove(){

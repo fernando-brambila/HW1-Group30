@@ -20,10 +20,10 @@ public class Room {
     public String print(){
         // to do: replace with constants
         if (visited){
-            return "/";
+            return "*";
         }else
         {
-            return "*";
+            return " ";
         }
     }
 }

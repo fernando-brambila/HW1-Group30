@@ -14,6 +14,7 @@ public class DungeonGame {
     }
 
     public void play() {
+        map.enterRoom(1, 1);
         map.print();
         while (true){
             player.nextMove();
