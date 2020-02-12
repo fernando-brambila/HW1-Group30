@@ -14,14 +14,17 @@ public class Player {
     private int x;
     private int y;
 
-    public Player(String playerClass){
-        this.playerClass = playerClass;
-        if (playerClass.equals(Constants.WARRIOR_NAME)){
+    public Player(){
+        System.out.println("Select your class:\n[1] Warrior\n[2] Thief");
+        String key = Character.toString(Constants.scanner.next().charAt(0));
+        if (key.equals("1")){
+            playerClass = Constants.WARRIOR_NAME;
             health = Constants.WARRIOR_HEALTH;
             damage = Constants.WARRIOR_DAMAGE;
             lootModifier = 1;
         }
-        if (playerClass.equals(Constants.THIEF_NAME)){
+        if (key.equals("2")){
+            playerClass = Constants.THIEF_NAME;
             health = Constants.THIEF_HEALTH;
             damage = Constants.THIEF_DAMAGE;
             lootModifier = Constants.THIEF_GP_MODIFIER;
@@ -42,7 +45,12 @@ public class Player {
     }
 
     public void onHit(int damage) {
-
+        if (health - damage > 0){
+            System.out.println("You took " + damage + " damage.");
+            health -= damage;
+        }else{
+            health = 0;
+        }
     }
 
     public void onHeal(int health) {
@@ -50,7 +58,9 @@ public class Player {
     }
 
     public void onLoot(int gold) {
-
+        System.out.println("You picked up " + gold + " gold");
+        this.gold += gold;
+        //TODO: check win state
     }
 
     public String print(){
@@ -122,5 +132,13 @@ public class Player {
     public void nextMove(){
         String key = Character.toString(Constants.scanner.next().charAt(0));
         move(key);
+    }
+
+    public Boolean isAlive(){
+        if (health > 0){
+            return true;
+        }else{
+            return false;
+        }
     }
 }

@@ -17,14 +17,28 @@ public class Constants {
 
     // monsters
 
+    public static String GOBLIN_NAME = "Goblin";
     public static int GOBLIN_HEALTH = 6;
     public static int GOBLIN_DAMAGE = 10;
 
+    public static String ZOMBIE_NAME = "Zombie";
     public static int ZOMBIE_HEALTH = 12;
     public static int ZOMBIE_DAMAGE = 15;
 
+    public static String ORC_NAME = "Orc";
     public static int ORC_HEALTH = 18;
     public static int ORC_DAMAGE = 20;
+
+    public static String DENEKE_NAME = "Deneke";
+    public static int DENEKE_HEALTH = 55;
+    public static int DENEKE_DAMAGE = 5;
+
+    // encounter types
+
+    public static String ENCOUNTER_NONE = "None";
+    public static String ENCOUNTER_MONSTER = "Monster";
+    public static String ENCOUNTER_LOOT = "Loot";
+    public static String ENCOUNTER_HEAL = "Heal";
 
     // controls
 
