@@ -86,18 +86,37 @@ public class Player {
 
     public void move(String direction){
         if (direction.equals(Constants.MOVE_UP)){
-            y -= 1;
+            if (y - 1 <= 0){
+                System.out.println("Invalid move");
+            }else{
+                y -= 1;
+                currentMap.enterRoom(x, y);
+            }
         }
         if (direction.equals(Constants.MOVE_DOWN)){
-            y += 1;
+            if (y + 1 > currentMap.getHeight()){
+                System.out.println("Invalid move");
+            }else{
+                y += 1;
+                currentMap.enterRoom(x, y);
+            }
         }
         if (direction.equals(Constants.MOVE_LEFT)) {
-            x -= 1;
+            if (x - 1 <= 0){
+                System.out.println("Invalid move");
+            }else{
+                x -= 1;
+                currentMap.enterRoom(x, y);
+            }
         }
         if (direction.equals(Constants.MOVE_RIGHT)){
-            x += 1;
+            if (x + 1 > currentMap.getWidth()){
+                System.out.println("Invalid move");
+            }else{
+                x += 1;
+                currentMap.enterRoom(x, y);
+            }
         }
-        currentMap.enterRoom(x, y);
     }
 
     public void nextMove(){
