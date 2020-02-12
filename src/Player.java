@@ -1,4 +1,3 @@
-
 public class Player {
     private String playerClass;
 
@@ -86,21 +85,22 @@ public class Player {
     }
 
     public void move(String direction){
-        switch(direction){
-            case "up":
-                y += 1;
-                break;
-            case "down":
-                y -= 1;
-                break;
-            case "left":
-                x -= 1;
-                break;
-            case "right":
-                x += 1;
-                break;
-            default:
-                System.out.println("Player move: No move direction specified!");
+        if (direction.equals(Constants.MOVE_UP)){
+            y -= 1;
         }
+        if (direction.equals(Constants.MOVE_DOWN)){
+            y += 1;
+        }
+        if (direction.equals(Constants.MOVE_LEFT)) {
+            x -= 1;
+        }
+        if (direction.equals(Constants.MOVE_RIGHT)){
+            x += 1;
+        }
+    }
+
+    public void nextMove(){
+        String key = Character.toString(Constants.scanner.next().charAt(0));
+        move(key);
     }
 }

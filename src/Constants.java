@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Constants {
 
     // warrior, thief classes
@@ -30,5 +32,9 @@ public class Constants {
     public static String MOVE_DOWN = "s";
     public static String MOVE_LEFT = "a";
     public static String MOVE_RIGHT = "d";
+
+    // scanner
+
+    public static Scanner scanner = new Scanner(System.in);
 
 }
