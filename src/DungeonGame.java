@@ -3,12 +3,12 @@ public class DungeonGame {
     private Player player;
     private Boolean playing;
 
-    public DungeonGame(){
-        setup();
+    public DungeonGame(int rows, int cols){
+        setup(cols, rows);
     }
 
-    public void setup(){
-        map = new DungeonMap(10, 10);
+    public void setup(int mapRows, int mapColumns){
+        map = new DungeonMap(mapRows, mapColumns);
         player = new Player();
         map.setPlayer(player);
         player.setMap(map);
@@ -46,5 +46,9 @@ public class DungeonGame {
 
     public void printHorizontalLine(){
         System.out.println("==========================");
+    }
+
+    public void parseArgs(String[] args){
+
     }
 }

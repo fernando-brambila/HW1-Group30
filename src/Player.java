@@ -16,23 +16,30 @@ public class Player {
     private int y;
 
     public Player(){
-        System.out.println("Select your class:\n[1] Warrior\n[2] Thief");
-        String key = Character.toString(Constants.scanner.next().charAt(0));
-        if (key.equals("1")){
-            playerClass = Constants.WARRIOR_NAME;
-            health = Constants.WARRIOR_HEALTH;
-            damage = Constants.WARRIOR_DAMAGE;
-            lootModifier = 1;
-        }
-        if (key.equals("2")){
-            playerClass = Constants.THIEF_NAME;
-            health = Constants.THIEF_HEALTH;
-            damage = Constants.THIEF_DAMAGE;
-            lootModifier = Constants.THIEF_GP_MODIFIER;
+
+        while (true) {
+            System.out.println("Select your class:\n[1] Warrior\n[2] Thief");
+            String key = Character.toString(Constants.scanner.next().charAt(0));
+            if (key.equals("1")) {
+                playerClass = Constants.WARRIOR_NAME;
+                health = Constants.WARRIOR_HEALTH;
+                damage = Constants.WARRIOR_DAMAGE;
+                lootModifier = 1;
+                break;
+            } else if (key.equals("2")) {
+                playerClass = Constants.THIEF_NAME;
+                health = Constants.THIEF_HEALTH;
+                damage = Constants.THIEF_DAMAGE;
+                lootModifier = Constants.THIEF_GP_MODIFIER;
+                break;
+            } else {
+                System.out.println("Invalid input, please try again.");
+            }
         }
 
         x = 1;
         y = 1;
+        maxHealth = health;
     }
 
     public void setMap(DungeonMap newMap){
@@ -55,6 +62,7 @@ public class Player {
     }
 
     public void onHeal(int health) {
+        System.out.println("You picked up a potion lying on the ground.");
         if ((this.health + health) > maxHealth){
             this.health = maxHealth;
             System.out.println("You have been fully healed!");
@@ -91,6 +99,14 @@ public class Player {
 
     public int getY() {
         return y;
+    }
+
+    public int getDamage(){
+        return damage;
+    }
+
+    public int getHealth(){
+        return health;
     }
 
     public int getGold(){

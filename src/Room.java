@@ -14,17 +14,21 @@ public class Room {
             int monsterPick = (int)(Math.random() * 9);
             //TODO: set monster
             if (monsterPick > 5) {
-                System.out.println("Spawned a " + Constants.GOBLIN_NAME);
+                //System.out.println("Spawned a " + Constants.GOBLIN_NAME);
+                monster = new Monster(Constants.GOBLIN_NAME);
             }else if (monsterPick > 3){
-                System.out.println("Spawned a " + Constants.ZOMBIE_NAME);
+                //System.out.println("Spawned a " + Constants.ZOMBIE_NAME);
+                monster = new Monster(Constants.ZOMBIE_NAME);
             }else if (monsterPick > 1){
-                System.out.println("Spawned a " + Constants.ORC_NAME);
+                //System.out.println("Spawned a " + Constants.ORC_NAME);
+                monster = new Monster(Constants.ORC_NAME);
             }else{
-                System.out.println("Spawned a " + Constants.DENEKE_NAME);
+                //System.out.println("Spawned a " + Constants.DENEKE_NAME);
+                monster = new Monster(Constants.DENEKE_NAME);
             }
         }else if (pick < 8){
             encounterType = Constants.ENCOUNTER_LOOT;
-            loot = (int)(Math.random() * 6);
+            loot = (int)(Math.random() * Constants.GOLD_AMOUNT);
         }else{
             encounterType = Constants.ENCOUNTER_HEAL;
             healBy = (int)(Math.random() * Constants.HEAL_AMOUNT);
@@ -39,9 +43,9 @@ public class Room {
         if (encounterType.equals(Constants.ENCOUNTER_MONSTER)){
             //TODO: proper monster encounter
             System.out.println("(Placeholder monster encounter)");
-            player.onHit(8);
+            monster.startEncounter(player);
         }
-        if (encounterType.equals(Constants.ENCOUNTER_LOOT)){
+        if (encounterType.equals(Constants.ENCOUNTER_HEAL)){
             player.onHeal(healBy);
         }
     }
