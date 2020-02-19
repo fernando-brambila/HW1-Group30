@@ -21,6 +21,7 @@ public class DungeonGame {
         while (playing){
             player.nextMove();
 
+            printHorizontalLine();
             map.print();
             player.printStats();
 
@@ -29,10 +30,21 @@ public class DungeonGame {
                 System.out.println("Game over.");
                 break;
             }
+
+            if (player.getGold() >= 100){
+                System.out.println("You have found over 100 gold!");
+                System.out.println("You can now escape the dungeon!");
+                System.out.println("Victory!");
+                break;
+            }
         }
     }
 
     public void end(){
         playing = false;
+    }
+
+    public void printHorizontalLine(){
+        System.out.println("==========================");
     }
 }

@@ -86,6 +86,10 @@ public class Player {
         return y;
     }
 
+    public int getGold(){
+        return gold;
+    }
+
     public void setX(int x) {
         this.x = x;
     }
