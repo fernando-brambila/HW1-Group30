@@ -2,6 +2,7 @@ public class Player {
     private String playerClass;
 
     private int health;
+    private int maxHealth;
     private int damage;
     private int gold;
 
@@ -54,7 +55,13 @@ public class Player {
     }
 
     public void onHeal(int health) {
-
+        if ((this.health + health) > maxHealth){
+            this.health = maxHealth;
+            System.out.println("You have been fully healed!");
+        }else{
+            this.health += health;
+            System.out.println("You have been healed by " + health);
+        }
     }
 
     public void onLoot(int gold) {

@@ -40,6 +40,8 @@ public class Constants {
     public static String ENCOUNTER_LOOT = "Loot";
     public static String ENCOUNTER_HEAL = "Heal";
 
+    public static int HEAL_AMOUNT = 10;
+
     // controls
 
     public static String MOVE_UP = "w";

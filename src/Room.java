@@ -4,6 +4,7 @@ public class Room {
     private boolean visited = false;
     private String encounterType;
     private int loot;
+    private int healBy;
     private Monster monster;
 
     public Room(){
@@ -21,9 +22,12 @@ public class Room {
             }else{
                 System.out.println("Spawned a " + Constants.DENEKE_NAME);
             }
-        }else{
+        }else if (pick < 8){
             encounterType = Constants.ENCOUNTER_LOOT;
             loot = (int)(Math.random() * 6);
+        }else{
+            encounterType = Constants.ENCOUNTER_HEAL;
+            healBy = (int)(Math.random() * Constants.HEAL_AMOUNT);
         }
     }
 
@@ -37,9 +41,13 @@ public class Room {
             System.out.println("(Placeholder monster encounter)");
             player.onHit(8);
         }
+        if (encounterType.equals(Constants.ENCOUNTER_LOOT)){
+            player.onHeal(healBy);
+        }
     }
 
     public void exit() {
+
     }
 
 
