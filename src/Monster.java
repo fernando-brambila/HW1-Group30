@@ -12,12 +12,13 @@ public class Monster {
         this.monsterType = type;
     }
 
-
-
-
-
     public void attack(Player target) {
         target.onHit(myrand.nextInt(damage));
+        
+        while(this.health > 0 && Player.health > 0) {
+         Player.health -= this.damage();
+         this.health -= Player.damage():
+        }
     }
 
 
